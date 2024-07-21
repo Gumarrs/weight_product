@@ -210,8 +210,9 @@
 					$nilai = $_POST['nilai'];
 					if($nilai=="0") $bobot = "0";
 					$upload = $_POST['upload'];
+					$keterangan = $_POST['keterangan'];
 
-					$qry = $lowongan_rinci->InsertData($id_penerimaan, $kriteria, $bobot, $nilai, $upload);
+					$qry = $lowongan_rinci->InsertData($id_penerimaan, $kriteria, $bobot, $nilai, $upload, $keterangan );
 
 					if($qry){
 						echo "<script language='javascript'>alert('Data berhasil disimpan'); document.location='?menu=penerimaan&kriteria=$id_lowongan&kriteria_aksi=tambah'</script>";
@@ -266,6 +267,13 @@
 						</div>
 
 						<div class="control-group">
+							<label class="control-label" for="basicinput">Keterangan</label>
+							<div class="controls">
+								<input type="text" id="basicinput" name="keterangan" placeholder="keterangan nilai dari kriteria" class="span8">
+							</div>
+						</div>
+
+						<div class="control-group">
 							<div class="controls">
 								<button type="submit" name="submit" class="btn">Simpan</button> <?php echo "<a class='btn' href='?menu=penerimaan&kriteria=$id_lowongan'>Selesai</a>"; ?>
 							</div>
@@ -286,10 +294,11 @@
 					$kriteria = $_POST['kriteria'];
 					$bobot = $_POST['bobot'];
 					$nilai = $_POST['nilai'];
+					$keterangan = $_POST['keterangan'];
 					if($nilai=="0") $bobot = "0";
 					$upload = $_POST['upload'];
 
-					$qry = $lowongan_rinci->EditData($kriteria, $bobot, $nilai, $upload, $id_lowongan_rinci);
+					$qry = $lowongan_rinci->EditData($kriteria, $bobot, $nilai, $upload,$keterangan, $id_lowongan_rinci);
 
 					if($qry){
 						echo "<script language='javascript'>alert('Data berhasil diedit'); document.location='?menu=penerimaan&kriteria=$id_lowongan'</script>";
@@ -374,6 +383,13 @@
 						</div>
 
 						<div class="control-group">
+    <label class="control-label" for="keterangan">Keterangan</label>
+    <div class="controls">
+        <textarea id="keterangan" name="keterangan" placeholder="Input bobot kriteria" class="form-control span8"><?php echo htmlspecialchars($rowLow['keterangan']); ?></textarea>
+    </div>
+</div>
+
+						<div class="control-group">
 							<div class="controls">
 								<button type="submit" name="submit" class="btn">Simpan</button>
 							</div>
@@ -427,6 +443,7 @@
 						<th>Bobot</th>
 						<th>@Nilai</th>
 						<th>@Upload</th>
+						<th>Keterangan</th>
 						<th><center>#</center></th>
 					</tr>
 				</thead>
@@ -453,8 +470,10 @@
 							<td width = 7%>$no</td>
 							<td width = 48%>$data[kriteria]</td>
 							<td width = 10%>$data[bobot]</td>
-							<td width = 10%>$ni</td>
-							<td width = 10%>$up</td>";
+							<td width = 5%>$ni</td>
+							<td width = 5%>$up</td>
+							<td width = 10%>$data[keterangan]</td>"
+							;
 
 						echo "<td width = 15%>
 							<a class='btn btn-small btn-warning' href='?menu=penerimaan&kriteria=$data[id_lowongan]&kriteria_aksi=edit&id_lowongan_rinci=$data[id_lowongan_rinci]'>Edit</a>

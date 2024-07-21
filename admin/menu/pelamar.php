@@ -102,7 +102,30 @@ if(!isset($_GET['penerimaan'])){
 					}else if($cekKrit['status_upload'] == "1"){
 						echo "<a target='blank' href='../upload/$krit[file]' class='span8'>Berkas Pelamar</a>";
 					}
-					
+					if (!empty($cekKrit['keterangan'])) {
+						// Tombol untuk membuka modal
+						echo " <br><a  data-toggle='modal' data-target='#modal_$ar'>Lihat Keterangan</a>";
+						
+						// Modal untuk menampilkan keterangan
+						echo "<div class='modal fade' id='modal_$ar' tabindex='-1' role='dialog' aria-labelledby='modalLabel_$ar' aria-hidden='true'>
+							<div class='modal-dialog modal-sm' role='document'>
+								<div class='modal-content'>
+									<div class='modal-header'>
+										<h5 class='modal-title' id='modalLabel_$ar'>$krit[kriteria]</h5>
+										<button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+											<span aria-hidden='true'>&times;</span>
+										</button>
+									</div>
+									<div class='modal-body'>
+										<p>$cekKrit[keterangan]</p>
+									</div>
+									<div class='modal-footer'>
+										<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+									</div>
+								</div>
+							</div>
+						</div>";
+					}
 					echo "</div>
 						</div>";
 				}
@@ -180,3 +203,6 @@ if(!isset($_GET['penerimaan'])){
 ?>
 	</div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

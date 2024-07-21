@@ -108,8 +108,8 @@
 
 		function __construct(){
 			$this->sqlDataLowongan = $this->bukaKoneksi()->prepare("select * from lowongan_rinci where id_lowongan=:id_lowongan");
-			$this->sqlInsert = $this->bukaKoneksi()->prepare("insert into lowongan_rinci values ('', :id_lowongan, :kriteria, :bobot, :nilai, :upload)");
-			$this->sqlEdit = $this->bukaKoneksi()->prepare("update lowongan_rinci set kriteria=:kriteria, bobot=:bobot, status_nilai=:nilai, status_upload=:upload where id_lowongan_rinci=:id_lowongan_rinci");
+			$this->sqlInsert = $this->bukaKoneksi()->prepare("insert into lowongan_rinci values ('', :id_lowongan, :kriteria, :bobot, :nilai,:keterangan, :upload)");
+			$this->sqlEdit = $this->bukaKoneksi()->prepare("update lowongan_rinci set kriteria=:kriteria, bobot=:bobot, status_nilai=:nilai, keterangan=:keterangan, status_upload=:upload where id_lowongan_rinci=:id_lowongan_rinci");
 			$this->sqlHapus = $this->bukaKoneksi()->prepare("delete from lowongan_rinci where id_lowongan_rinci=:id_lowongan_rinci");
 			$this->sqlHapusLamaran = $this->bukaKoneksi()->prepare("delete from pelamar where id_lowongan=:id_lowongan and kriteria=:kriteria");
 		}
@@ -124,12 +124,13 @@
 			}
 		}
 
-		function InsertData($id_lowongan, $kriteria, $bobot, $nilai, $upload){
+		function InsertData($id_lowongan, $kriteria, $bobot, $nilai, $upload, $keterangan){
 			try{
 				$this->sqlInsert->bindParam(':id_lowongan', $id_lowongan);
 				$this->sqlInsert->bindParam(':kriteria', $kriteria);
 				$this->sqlInsert->bindParam(':bobot', $bobot);
 				$this->sqlInsert->bindParam(':nilai', $nilai);
+				$this->sqlInsert->bindParam(':keterangan', $keterangan);
 				$this->sqlInsert->bindParam(':upload', $upload);
 				$this->sqlInsert->execute();
 				return $this->sqlInsert;
@@ -148,12 +149,13 @@
 			}
 		}
 
-		function EditData($kriteria, $bobot, $nilai, $upload, $id_lowongan_rinci){
+		function EditData($kriteria, $bobot, $nilai, $upload,$keterangan, $id_lowongan_rinci){
 			try{
 				$this->sqlEdit->bindParam(':kriteria', $kriteria);
 				$this->sqlEdit->bindParam(':bobot', $bobot);
 				$this->sqlEdit->bindParam(':nilai', $nilai);
 				$this->sqlEdit->bindParam(':upload', $upload);
+				$this->sqlEdit->bindParam(':keterangan', $keterangan);
 				$this->sqlEdit->bindParam(':id_lowongan_rinci', $id_lowongan_rinci);
 				$this->sqlEdit->execute();
 				return $this->sqlEdit;

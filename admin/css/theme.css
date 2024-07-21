@@ -894,125 +894,134 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='@topColor', end
 	text-overflow: ellipsis;
 	white-space: nowrap
 }
+/* General Styles */
 .widget .progress {
-	margin-bottom: 0
+    margin-bottom: 0;
 }
+
+/* Widget Menu Styles */
 .widget-menu {
-	background: #fff;
-	
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	
-	overflow: hidden
+    background: #f5f5f5; /* Light grey background for better readability */
+    border-radius: 4px; /* Slightly larger border radius for smoother corners */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
 }
+
 .widget-menu a {
-	color: #555;
-	display: block;
-	line-height: 20px;
-	padding: 15px;
-	text-decoration: none!important
+    color: #333; /* Darker grey for better contrast */
+    display: block;
+    line-height: 24px; /* Slightly larger line-height for better readability */
+    padding: 15px;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
+
 .widget-menu .menu-icon {
-	 
-	margin-right: 10px;
-	 
-	color: #767676;
-	 -webkit-transition: all .2s ease-in-out;
--moz-transition: all .2s ease-in-out;
-transition: all .2s ease-in-out;
+    margin-right: 10px;
+    color: #333;
+    transition: all 0.3s ease; /* Smooth transition */
 }
+
+/* Label Styles */
 .widget-menu .label {
-	background: #888;
-	-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
-	-moz-box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
-	box-shadow: 0 0 2px rgba(0,0,0,0.4) inset;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	line-height: 20px;
-	padding: 0 5px
+    background: #888;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4) inset;
+    border-radius: 3px;
+    line-height: 20px;
+    padding: 0 5px;
 }
+
 .widget-menu .label.green {
-	background: #78ba00
+    background: #28a745; /* Bootstrap green color */
 }
+
 .widget-menu .label.orange {
-	background: #d74f2a
+    background: #fd7e14; /* Bootstrap orange color */
 }
+
+/* List Item Styles */
 .widget-menu>li+li {
-	border-top: 1px solid #555
+    border-top: 1px solid #ccc; /* Lighter border color */
 }
+
 .widget-menu>li>a {
-	background-color: #2d2b32;
-	color: #767676;
-	-webkit-transition: all .2s ease-in-out;
--moz-transition: all .2s ease-in-out;
-transition: all .2s ease-in-out;
+    background-color: #fff; /* White background for main items */
+    color: #333;
 }
+
 .widget-menu>li>a .icon-chevron-up {
-	display: block
+    display: block;
 }
+
 .widget-menu>li>a .icon-chevron-down {
-	display: none
+    display: none;
 }
+
 .widget-menu>li>a.collapsed .icon-chevron-up {
-	display: none
+    display: none;
 }
+
 .widget-menu>li>a.collapsed .icon-chevron-down {
-	display: block
+    display: block;
 }
+
 .widget-menu>li>a:hover {
-	background-color: #28262c;
-	color: #fafafa;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff; /* White text on hover */
 }
 
-.widget-menu>li>a:hover .menu-icon { color:#fff;}
+.widget-menu>li>a:hover .menu-icon {
+    color: #fff; /* White icon on hover */
+}
 
+/* Submenu Styles */
 .widget-menu>li ul li {
-	background: #eee;
-	border-top: 1px solid #ccc
+    background: #e9ecef; /* Light grey background for sub-items */
+    border-top: 1px solid #ddd;
 }
+
 .widget-menu>li ul li+li {
-	border-top: 0
+    border-top: 0;
 }
+
 .widget-menu>li ul li.active a {
-	background: #f0f0f0
+    background: #dfe4ea; /* Slightly darker grey for active sub-item */
 }
+
 .widget-menu>li ul li a {
-	padding: 10px 15px 10px 30px
+    padding: 10px 15px 10px 30px;
 }
+
 .widget-menu>li ul li a:hover {
-	background: #f5f5f5;
-	-webkit-box-shadow: 0 1px 0 #fafafa inset;
-	-moz-box-shadow: 0 1px 0 #fafafa inset;
-	box-shadow: 0 1px 0 #fafafa inset;
-	border-bottom: 1px solid #d5d5d5;
-	border-top: 1px solid #d5d5d5;
-	padding: 9px 15px 9px 30px
+    background: #ced4da; /* Darker grey on hover for sub-items */
+    box-shadow: 0 1px 0 #fff inset;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 9px 15px 9px 30px;
 }
+
+/* Widget Usage Styles */
 .widget-usage {
-	
-	
-background-color: #fff;
-border: 1px solid transparent;
-border-radius: 4px;
--webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-
-text-decoration: none!important;
-
-
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: none !important;
 }
+
 .widget-usage p {
-	margin-bottom: 10px;
-	line-height: 1.2
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
+
 .widget-usage li {
-	padding: 15px
+    padding: 15px;
 }
+
 .widget-usage li+li {
-	border-top: 1px solid #ddd
+    border-top: 1px solid #ddd;
 }
+
 .module {
 	
 	box-shadow: 0 0 3px rgba(0,0,0,.1);
